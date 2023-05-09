@@ -1,6 +1,7 @@
 import { Component } from 'react';
+import { Form, Label } from './ContactForm.styled';
 
-export class Form extends Component {
+export class ContactForm extends Component {
   state = {
     name: '',
     number: '',
@@ -20,20 +21,20 @@ export class Form extends Component {
   render() {
     const { number, name } = this.state;
     return (
-      <form onSubmit={this.onSubmit}>
-        <label>
+      <Form onSubmit={this.onSubmit}>
+        <Label>
           Name
           <input
             value={name}
             type="text"
             name="name"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
             onChange={this.onChange}
           />
-        </label>
-        <label>
+        </Label>
+        <Label>
           Number
           <input
             value={number}
@@ -44,9 +45,9 @@ export class Form extends Component {
             required
             onChange={this.onChange}
           />
-        </label>
+        </Label>
         <button type="submit">Add contact</button>
-      </form>
+      </Form>
     );
   }
 }
